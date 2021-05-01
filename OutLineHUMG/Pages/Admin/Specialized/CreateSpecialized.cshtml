@@ -1,0 +1,30 @@
+﻿@page
+@model OutLineHUMG.Pages.Admin.Specialized.CreateSpecializedModel
+@{
+    ViewData["Title"] = "Create Specialized";
+}
+<div class="container">
+    <h3 class="display-4" style="color:chocolate;text-align:center">Welcome to Create Specialized Pages</h3>
+    <form method="post" class="form-group" >
+        <p style="color:red">
+            @if (TempData[CreateSpecializedModel.Messagekey] is string message)
+            {
+                <p style="color:red">@message</p>
+            }
+        </p>
+        <label asp-for="@Model.ChuyenNgang.CodeSpecialized">Mã Chuyên ngàng</label>
+        <input asp-for="@Model.ChuyenNgang.CodeSpecialized" class="form-control" type="text" />
+        <label asp-for="@Model.ChuyenNgang.Titlespecialized">Tên Chuyên ngàng</label>
+        <input asp-for="@Model.ChuyenNgang.Titlespecialized" class="form-control" type="text" />
+        <label asp-for="@Model.ChuyenNgang.Contentspecialized">Mô Tả Chuyên ngàng</label>
+        <input asp-for="@Model.ChuyenNgang.Contentspecialized" class="form-control" type="text" />
+        <label asp-for="@Model.ChuyenNgang.Statusspecialized">Trạng thái hoạt động</label>
+        <br />
+        <input type="radio" asp-for="@Model.ChuyenNgang.Statusspecialized" value="0" class="custom-radio" /> Hidden
+        <input type="radio" asp-for="@Model.ChuyenNgang.Statusspecialized" value="1" class="custom-radio" /> Show
+        <br />
+        <input class="btn btn-danger" type="submit" value="Create">
+        <button class="btn btn-success" type="reset">Reset</button>
+    </form>
+
+</div>

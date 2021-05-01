@@ -1,0 +1,31 @@
+﻿@page
+@model OutLineHUMG.Pages.Admin.Specialized.ViewSpecializedModel
+@{
+    ViewData["Title"] = "View Specialized";
+}
+<div class="container">
+    <h3 class="display-4" style="text-align:center;color:chocolate">View Specialized</h3>
+    <a class="btn btn-outline-danger c" asp-page="/Admin/Specialized/CreateSpecialized" style="margin-left:50%">Create Specialized</a>
+    <table class="table table-sm table-bordered shadow">
+        <tr class="thead-light">
+            <th>STT</th>
+            <th>Mã môn học</th>
+            <th>Tên môn học</th>
+            <th>Thao Tác</th>
+        </tr>
+        @foreach (var dm in Model.spec)
+        {
+            <tr>
+                <td>@dm.Idspecialized</td>
+                <td>@dm.CodeSpecialized</td>
+                <td>@dm.Titlespecialized</td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-page="/Admin/Specialized/DeleteSpecialized" asp-page-handler="Delete" asp-route-id="@dm.Idspecialized">Delete</a>
+                    <a class="btn btn-outline-secondary" asp-page="/Admin/Specialized/UpdateSpecialized" asp-page-handler="Update" asp-route-id="@dm.Idspecialized">Update</a>
+                    <a class="btn btn-outline-success" asp-page="Showcategories">Read</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>
